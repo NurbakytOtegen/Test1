@@ -1,4 +1,4 @@
-package entity;
+package org.example.entity;
 
 import jakarta.persistence.*;
 
@@ -13,6 +13,14 @@ public class User {
     private String login;
     @Column(name="password")
     private String password;
+
+    public User(int id, String login,String password) {
+        this.id=id;
+        this.login=login;
+        this.password=password;
+    }
+
+    public User() {}
 
     public String getPassword() {
         return password;
@@ -36,5 +44,14 @@ public class User {
 
     public void setId(long id) {
         this.id = id;
+    }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "id=" + id +
+                ", login='" + login + '\'' +
+                ", password='" + password + '\'' +
+                '}';
     }
 }

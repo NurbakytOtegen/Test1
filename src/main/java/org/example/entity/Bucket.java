@@ -1,2 +1,5 @@
-package org.example.entity;public class Bucket {
+package org.example.entity;
+
+public class Bucket {
+
 }
