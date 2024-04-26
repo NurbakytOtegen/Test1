@@ -54,40 +54,42 @@
     </div>
 </nav>
 
-<div class="container">
+<!--<div class="container">-->
 
-    <h1>Welcome to our page
-        <span th:style="'color:' + ${color}">
-            test
-        </span>
-    </h1>
+<!--    <h1>Welcome to our page-->
+<!--        <span th:style="'color:' + ${color}">-->
+<!--            test-->
+<!--        </span>-->
+<!--    </h1>-->
 
-    <table>
-        <thead>
-        <tr>
-            <th> id</th>
-            <th> name</th>
-        </tr>
-        </thead>
-        <tbody>
-        <tr th:if="${users.isEmpty()}">
-            <td colspan="2"> No Movies Available</td>
-        </tr>
-        <tr th:each="user : ${users}">
-            <td><span th:text="${user.id}"> ID </span></td>
-            <td><span th:text="${user.login}"> TITLE </span></td>
-            <td>
-                <button type="button"
-                        class="btn btn-primary"
-                        data-bs-toggle="modal"
-                        th:id="'modal' + ${user.id}"
-                        th:data-bs-target="'#modal'+${user.id}"
-                >
+<!--    <table>-->
+<!--        <thead>-->
+<!--        <tr>-->
+<!--            <th> id</th>-->
+<!--            <th> name</th>-->
+<!--        </tr>-->
+<!--        </thead>-->
+<!--        <tbody>-->
+<!--        <tr th:if="${users.isEmpty()}">-->
+<!--            <td colspan="2"> No Movies Available</td>-->
+<!--        </tr>-->
+<!--        <tr th:each="user : ${users}">-->
+<!--            <td><span th:text="${user.id}"> ID </span></td>-->
+<!--            <td><span th:text="${user.title}"> TITLE </span></td>-->
+<!--            <td>-->
+<!--                <button type="button"-->
+<!--                        class="btn btn-primary"-->
+<!--                        data-bs-toggle="modal"-->
+<!--                        th:id="'modal' + ${user.id}"-->
+<!--                        th:data-bs-target="'#modal'+${user.id}"-->
+<!--                >-->
 
 
-                    Movies
-                </button>
-            </td>
+<!--                    Movies-->
+<!--                </button>-->
+<!--            </td>-->
+
+
 
 <!--             Modal-->
 <!--            <div class="modal fade" th:id="'modal' + ${user.id}" tabindex="-1" aria-labelledby="exampleModalLabel"-->
@@ -114,8 +116,38 @@
 <!--            </div>-->
 
 <!--        </tr>-->
-        </tbody>
-    </table>
-</div>
+<!--        </tbody>-->
+<!--    </table>-->
+<!--</div>-->
+
+
+
+<a href="login">Hell</a>
+
+
+
+
+<h1>Movies</h1>
+<h2>View Movies</h2>
+<table>
+    <tr>
+        <th>Movie ID:</th>
+        <th>Movie TITLE:</th>
+        <th>Movie Des</th>
+        <th>Delete</th>
+    </tr>
+    <tr th:each="m: ${movies}">
+        <td th:text="${m.id}"></td>
+        <td th:text="${m.title}"></td>
+        <td th:text="${m.description}"></td>
+        <td><button type="button"></button></td>
+    </tr>
+</table>
+<h2>Add movie</h2>
+<form action="/ui/movies" method="post">
+    Title<input type="text" name="title"><br>
+    Des<input type="text" name="description"><br>
+    <button type="submit">Add movie</button>
+</form>
 </body>
 </html>

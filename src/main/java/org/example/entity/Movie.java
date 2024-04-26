@@ -1,9 +1,15 @@
 package org.example.entity;
 
 import jakarta.persistence.*;
+import lombok.*;
 
-@Table(name="galaxy_movie")
+@Table(name="movies")
 @Entity
+@Getter
+@Setter
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
 public class Movie {
     @Id
     @GeneratedValue
@@ -11,34 +17,18 @@ public class Movie {
 private long id;
     @Column(name = "title")
 private String title;
-
-    public Movie() {}
-    public Movie(int id,String title){
-        this.id=id;
-        this.title=title;
-    }
-
-    public long getId() {
-        return id;
-    }
-
-    public String getTitle() {
-        return title;
-    }
-
-    public void setId(long id) {
-        this.id = id;
-    }
-
-    public void setTitle(String title) {
-        this.title = title;
-    }
+    @Column(name="description")
+    private String description;
+    @Column(name="img")
+    private String img;
 
     @Override
     public String toString() {
         return "Movie{" +
                 "id=" + id +
                 ", title='" + title + '\'' +
+                ", description='" + description + '\'' +
+                ", img='" + img + '\'' +
                 '}';
     }
 }

@@ -11,7 +11,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 @RestController
-@RequestMapping("/home")
+@CrossOrigin(origins = "http://localhost:3091/")
+@RequestMapping("")
 public class HomeController {
     private final UserService userService;
     private final MovieService movieService;
@@ -25,7 +26,7 @@ public class HomeController {
     public String getHome(){
         return "Hello Welcome Here!";
     }
-//    @GetMapping("/{user}")
+//    @GetMapping("/user/{user_id}")
 //    public String HiUser(@PathVariable String user){
 //        return "Hello "+user;
 //    }
@@ -46,4 +47,6 @@ public class HomeController {
 //    private List<Movie> getAllMovies(){
 //        return movieService.getAllMovies();
 //    }
+
+
 }

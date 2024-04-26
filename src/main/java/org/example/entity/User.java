@@ -1,57 +1,44 @@
 package org.example.entity;
 
 import jakarta.persistence.*;
+import lombok.*;
 
-@Table(name="galaxy_user")
+import java.util.Collection;
+
+
 @Entity
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder
+@Table(name="users")
 public class User {
     @Id
     @GeneratedValue
     @Column(name="id")
     private long id;
-    @Column(name = "login")
-    private String login;
-    @Column(name="password")
+    @Column(name = "username",unique = true,nullable = false)
+    private String username;
+    @Column(name="password",nullable = false)
     private String password;
+    @Column(name="email",unique = true,nullable = false)
+    private String email;
+    @Enumerated(EnumType.STRING)
+    @Column(name="role",nullable = false)
+    private ERole role;
 
-    public User(int id, String login,String password) {
-        this.id=id;
-        this.login=login;
-        this.password=password;
-    }
 
-    public User() {}
 
-    public String getPassword() {
-        return password;
-    }
-
-    public long getId() {
-        return id;
-    }
-
-    public String getLogin() {
-        return login;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
-    public void setLogin(String login) {
-        this.login = login;
-    }
-
-    public void setId(long id) {
-        this.id = id;
-    }
 
     @Override
     public String toString() {
         return "User{" +
                 "id=" + id +
-                ", login='" + login + '\'' +
+                ", username='" + username + '\'' +
                 ", password='" + password + '\'' +
+                ", email='" + email + '\'' +
+                ", role=" + role +
                 '}';
     }
 }

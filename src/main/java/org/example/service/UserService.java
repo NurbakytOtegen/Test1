@@ -14,15 +14,23 @@ public class UserService {
         this.repository = repository;
     }
 
-    public String addUser(User user){
-        if(!user.getLogin().isBlank() &&!user.getPassword().isBlank() && user.getLogin().length()>3 ){
-repository.save(user);
-            return "Added";
-        }
-        else return "Not Added";
-    }
+//    public String addUser(User user){
+//        if(!user.getLogin().isBlank() &&!user.getPassword().isBlank() && user.getLogin().length()>3 ){
+//repository.save(user);
+//            return "Added";
+//        }
+//        else return "Not Added";
+//    }
 
     public List<User> getAllUser(){
         return repository.findAll();
     }
+    public String createUser(User user){
+        if(!user.getUsername().isBlank()&& !user.getPassword().isBlank()){
+            repository.save(user);
+            return "added";
+        }
+        return "not added";
+    }
+
 }
