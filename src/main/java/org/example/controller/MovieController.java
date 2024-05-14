@@ -1,5 +1,7 @@
 package org.example.controller;
 
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
 import org.example.dto.MovieDTO;
 import org.example.entity.Movie;
@@ -12,21 +14,22 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@Controller
 @RestController
 @RequiredArgsConstructor
-
+@CrossOrigin("*")
 @RequestMapping("/api/movies")
+@Tag(name="Auth")
 public class MovieController {
     private final MovieService movieService;
 
     //Build Add Movie REST API
     @PostMapping("")
+    @Operation(summary = "Доступен авторизованным пользователям")
     public ResponseEntity<MovieDTO> createMovie(@RequestBody MovieDTO movieDTO){
         MovieDTO savedMovie=movieService.createMovie(movieDTO);
         return new ResponseEntity<>(savedMovie, HttpStatus.CREATED);
     }
-    //Build Movie By Id REST API
+    //Build Movie By ID REST API
     @GetMapping("movie_id={id}")
     public ResponseEntity<MovieDTO> getMovieById(@PathVariable("id") Long movieId){
         MovieDTO movieDTO=movieService.getMovieById(movieId);

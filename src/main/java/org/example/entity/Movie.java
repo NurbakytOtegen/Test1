@@ -22,6 +22,7 @@ private String title;
     @Column(name="img")
     private String img;
 
+
     @Override
     public String toString() {
         return "Movie{" +

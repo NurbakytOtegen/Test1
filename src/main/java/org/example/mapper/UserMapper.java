@@ -14,7 +14,7 @@ public class UserMapper {
         );
     }
 
-    public static User mapToUserDTO(UserDTO userDTO){
+    public static User mapToUser(UserDTO userDTO){
         return new User(
                 userDTO.getId(),
                 userDTO.getUsername(),

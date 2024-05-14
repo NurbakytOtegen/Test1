@@ -42,6 +42,7 @@ public class MovieServiceImpl implements MovieService {
     public void deleteMovie(Long movieId) {
         Movie movie=movieRepository.findById(movieId).orElseThrow(()->new ResourceNotFoundException("Movie is now exist by this id "+movieId));
         movieRepository.deleteById(movieId);
+        System.out.println("Удалено!");
     }
 
     @Override

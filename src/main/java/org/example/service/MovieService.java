@@ -1,12 +1,16 @@
 package org.example.service;
 
+import lombok.AllArgsConstructor;
 import org.example.dto.MovieDTO;
 import org.example.entity.Movie;
+import org.example.exception.ResourceNotFoundException;
+import org.example.mapper.MovieMapper;
 import org.example.repository.MovieRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 
 public interface MovieService {
@@ -16,29 +20,4 @@ public interface MovieService {
     void deleteMovie(Long movieId);
     MovieDTO updateMovie(Long movieId, MovieDTO updatedMovie);
 
-//    private final MovieRepository movieRepository;
-//    private List<Movie> movies=new ArrayList<>();
-//
-//    public MovieService(MovieRepository movieRepository) {
-//        this.movieRepository = movieRepository;
-//    }
-//    public String addMovie(Movie movie){
-//        if(!movie.getTitle().isBlank()){
-//            movies.add(movie);
-//            movieRepository.save(movie);
-//            return "Added Movie";
-//        }
-//        else {
-//            return "Not Added Movie";
-//        }
-//    }
-//    public List<Movie> getAllMovies(){
-//        return  movies;
-//    }
-//    public void deleteMovie(Movie movie){
-//        movieRepository.delete(movie);
-//    }
-//    public List<Movie> getAllByTitle(String movie){
-//        return movieRepository.getAllByTitle(movie);
-//    }
 }
