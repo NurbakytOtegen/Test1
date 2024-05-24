@@ -21,6 +21,14 @@ private String title;
     private String description;
     @Column(name="img")
     private String img;
+    @Column(name="genre")
+    private String genre;
+    @Column(name="rating")
+    private double rating;
+    @Column(name="votes")
+    private int votes;
+    @Column(name="price")
+    private double price;
 
 
     @Override
@@ -30,6 +38,10 @@ private String title;
                 ", title='" + title + '\'' +
                 ", description='" + description + '\'' +
                 ", img='" + img + '\'' +
+                ", genre='" + genre + '\'' +
+                ", rating=" + rating +
+                ", votes=" + votes +
+                ", price=" + price +
                 '}';
     }
 }

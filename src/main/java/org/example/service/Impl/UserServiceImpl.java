@@ -1,6 +1,10 @@
 package org.example.service.Impl;
 
 import lombok.AllArgsConstructor;
+import org.example.Payments.PaymentMethod;
+import org.example.Payments.PaymentMethodDto;
+import org.example.Payments.PaymentStrategy;
+import org.example.Payments.PaymentStrategyFactory;
 import org.example.dto.UserDTO;
 import org.example.entity.User;
 import org.example.mapper.UserMapper;
@@ -8,6 +12,7 @@ import org.example.repository.UserRepository;
 import org.example.service.UserService;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.example.exception.ResourceNotFoundException;
 
@@ -19,6 +24,7 @@ import java.util.stream.Collectors;
 @AllArgsConstructor
 public class UserServiceImpl implements UserService {
     private UserRepository userRepository;
+
     //Предыдущий метод
 //    @Override
 //    public UserDTO addUser(UserDTO userDTO) {
@@ -84,5 +90,75 @@ public class UserServiceImpl implements UserService {
        return userRepository.findByUsername(username)
                 .orElseThrow(()->new ResourceNotFoundException("Пользователь не найден"));
 
+    }
+
+    @Override
+    public void addPaymentMethod(Long userId, PaymentMethodDto paymentMethodDto) {
+        User user=userRepository.findById(userId)
+                .orElseThrow(()->new ResourceNotFoundException("User not found with given id: "+userId));
+
+        PaymentMethod paymentMethod=new PaymentMethod();
+        paymentMethod.setType(paymentMethodDto.getType());
+
+        if("creditCard".equalsIgnoreCase(paymentMethodDto.getType())){
+            paymentMethod.setCardNumber(paymentMethodDto.getCardNumber());
+            paymentMethod.setCvv(paymentMethodDto.getCvv());
+        }else if("paypal".equalsIgnoreCase(paymentMethod.getType())){
+            paymentMethod.setPaypalEmail(paymentMethodDto.getPaypalEmail());
+            paymentMethod.setPaypalPassword(paymentMethodDto.getPaypalPassword());
+        }
+
+        user.getPaymentMethod().add(paymentMethod);
+        userRepository.save(user);
+    }
+
+    @Override
+    public List<PaymentMethodDto> getPaymentMethods(long id) {
+        User user = userRepository.findById(id)
+                .orElseThrow(() -> new ResourceNotFoundException("User not found with id: " + id));
+        return user.getPaymentMethod().stream()
+                .map(paymentMethod -> new PaymentMethodDto(
+                        paymentMethod.getId(),
+                        paymentMethod.getType(),
+                        paymentMethod.getCardNumber(),
+                        paymentMethod.getCvv(),
+                        paymentMethod.getPaypalEmail(),
+                        paymentMethod.getPaypalPassword()
+                ))
+                .collect(Collectors.toList());
+    }
+
+
+    @Override
+    public void topUpBalance(Long userId, double amount, Long paymentMethodId) {
+        User user=userRepository.findById(userId)
+                .orElseThrow(()->new ResourceNotFoundException("User not found with given id: "+userId));
+
+        PaymentMethod paymentMethod=user.getPaymentMethod().stream()
+                .filter(pm->pm.getId().equals(paymentMethodId))
+                .findFirst()
+                .orElseThrow(()->new ResourceNotFoundException("Payment method not found with id: " + paymentMethodId));
+
+        PaymentStrategy paymentStrategy= PaymentStrategyFactory.getPaymentStrategy(new PaymentMethodDto(
+                paymentMethod.getId(),
+                paymentMethod.getType(),
+                paymentMethod.getCardNumber(),
+                paymentMethod.getCvv(),
+                paymentMethod.getPaypalEmail(),
+                paymentMethod.getPaypalPassword()
+        ));
+
+        paymentStrategy.pay(amount);
+        user.setBalance(user.getBalance()+amount);
+        userRepository.save(user);
+    }
+
+    @Override
+    public double getUserBalance(long id) {
+        User user=userRepository.findById(id).orElseThrow(()->new ResourceNotFoundException("Not user for given id"));
+        if (user!=null) {
+            return user.getBalance();
+        }
+        return 0;
     }
 }

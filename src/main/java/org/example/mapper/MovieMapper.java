@@ -9,7 +9,11 @@ public class MovieMapper {
                 movie.getId(),
                 movie.getTitle(),
                 movie.getDescription(),
-                movie.getImg()
+                movie.getImg(),
+                movie.getGenre(),
+                movie.getRating(),
+                movie.getVotes(),
+                movie.getPrice()
         );
     };
 
@@ -18,7 +22,11 @@ public class MovieMapper {
                 movieDTO.getId(),
                 movieDTO.getTitle(),
                 movieDTO.getDescription(),
-                movieDTO.getImg()
+                movieDTO.getImg(),
+                movieDTO.getGenre(),
+                movieDTO.getRating(),
+                movieDTO.getVotes(),
+                movieDTO.getPrice()
         );
     }
 }

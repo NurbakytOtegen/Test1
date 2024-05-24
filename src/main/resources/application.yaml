@@ -10,7 +10,7 @@ spring:
     name: security-security
   jpa:
     hibernate:
-      ddl-auto: create
+      ddl-auto: update
     show-sql: false
 token:
   sign:

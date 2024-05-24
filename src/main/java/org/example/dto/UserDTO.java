@@ -4,7 +4,10 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.example.Payments.PaymentMethod;
 import org.example.entity.ERole;
+
+import java.util.List;
 
 @Getter
 @Setter
@@ -16,4 +19,6 @@ public class UserDTO {
     private String password;
     private String email;
     private ERole role;
+    private double balance;
+    private List<PaymentMethod> paymentMethod;
 }

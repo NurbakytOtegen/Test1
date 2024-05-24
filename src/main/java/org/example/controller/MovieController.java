@@ -2,6 +2,7 @@ package org.example.controller;
 
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
+import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import org.example.dto.MovieDTO;
 import org.example.entity.Movie;
@@ -57,4 +58,14 @@ public class MovieController {
         movieService.deleteMovie(movieId);
         return ResponseEntity.ok("Movie deleted successfully!");
     }
+
+    //
+    @Transactional
+    @PutMapping("{id}/rate")
+    public ResponseEntity<MovieDTO> rateMovie(@PathVariable("id") long id, @RequestParam("rate") double rate){
+        MovieDTO movieDTO=movieService.rateMovie(id,rate);
+        return ResponseEntity.ok(movieDTO);
+    }
+    //
+
 }

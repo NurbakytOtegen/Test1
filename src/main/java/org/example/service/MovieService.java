@@ -20,4 +20,7 @@ public interface MovieService {
     void deleteMovie(Long movieId);
     MovieDTO updateMovie(Long movieId, MovieDTO updatedMovie);
 
+    ///
+    List<MovieDTO> getMovieByGenre(String genre);
+    MovieDTO rateMovie(Long movie_id, double rating);
 }

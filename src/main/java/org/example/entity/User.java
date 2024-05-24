@@ -2,10 +2,12 @@ package org.example.entity;
 
 import jakarta.persistence.*;
 import lombok.*;
+import org.example.Payments.PaymentMethod;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
@@ -31,9 +33,11 @@ public class User implements UserDetails {
     @Enumerated(EnumType.STRING)
     @Column(name="role",nullable = false)
     private ERole role;
-
-
-
+    @Column(name="balance")
+    private double balance;
+    @OneToMany(cascade = CascadeType.ALL)
+    @JoinColumn(name = "user_id")
+    private List<PaymentMethod> paymentMethod=new ArrayList<>();
 
     @Override
     public String toString() {
@@ -43,6 +47,8 @@ public class User implements UserDetails {
                 ", password='" + password + '\'' +
                 ", email='" + email + '\'' +
                 ", role=" + role +
+                ", balance=" + balance +
+                ", paymentMethod=" + paymentMethod +
                 '}';
     }
 

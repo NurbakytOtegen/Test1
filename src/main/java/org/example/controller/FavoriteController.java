@@ -15,6 +15,7 @@ import java.util.List;
 
 @RestController
 @RequiredArgsConstructor
+@CrossOrigin("*")
 @RequestMapping("/api/favorites")
 public class FavoriteController {
     private final FavoriteService favoriteService;
@@ -36,8 +37,11 @@ public class FavoriteController {
         return new ResponseEntity<>(favorites,HttpStatus.OK);
     }
 
+
+
     @DeleteMapping("/remove")
     public ResponseEntity<String> removeFromFavorites(@RequestParam Long userId,@RequestParam Long movieId){
+
         boolean removed= favoriteService.removeFromFavorites(userId,movieId);
         if(removed){
             return new ResponseEntity<>("Кино было удалено с избранного",HttpStatus.OK);

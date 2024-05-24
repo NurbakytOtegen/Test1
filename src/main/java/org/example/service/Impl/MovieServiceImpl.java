@@ -20,6 +20,8 @@ public class MovieServiceImpl implements MovieService {
     @Override
     public MovieDTO createMovie(MovieDTO movieDTO) {
         Movie movie= MovieMapper.mapToMovie(movieDTO);
+        movie.setRating(0);
+        movie.setVotes(0);
         Movie savedMovie=movieRepository.save(movie);
         return MovieMapper.mapToMovieDto(savedMovie);
     }
@@ -53,5 +55,33 @@ public class MovieServiceImpl implements MovieService {
         movie.setImg(updatedMovie.getImg());
         Movie updatedMovieObj=movieRepository.save(movie);
         return MovieMapper.mapToMovieDto(updatedMovieObj);
+    }
+
+    @Override
+    public List<MovieDTO> getMovieByGenre(String genre) {
+        List<Movie> movies=movieRepository.findByGenre(genre);
+        if(movies.isEmpty()){
+            throw new ResourceNotFoundException("Нету фильмов в заданном жанре: "+genre);
+        }
+
+        return movies.stream()
+                .map(MovieMapper::mapToMovieDto)
+                .collect(Collectors.toList());
+    }
+
+    @Override
+    public MovieDTO rateMovie(Long movie_id, double rating) {
+        Movie movie=movieRepository.findById(movie_id)
+                .orElseThrow(()->new ResourceNotFoundException("Нету фильмо по данному id: "+movie_id));
+        double currentRating=movie.getRating();
+        int votes=movie.getVotes();
+
+        double newRating=((currentRating*votes)+rating)/(votes+1);
+
+        movie.setRating(newRating);
+        movie.setVotes(votes+1);
+
+        Movie updatedMovie=movieRepository.save(movie);
+        return MovieMapper.mapToMovieDto(updatedMovie);
     }
 }

@@ -1,5 +1,7 @@
 package org.example.service;
 
+
+import org.example.Payments.PaymentMethodDto;
 import org.example.dto.UserDTO;
 import org.example.entity.User;
 import org.example.repository.UserRepository;
@@ -23,6 +25,14 @@ public interface UserService {
     User getByUsername(String username);
 
 
+    //Добавить метод оплаты
+    void addPaymentMethod(Long userId, PaymentMethodDto paymentMethodDto);
+    List<PaymentMethodDto> getPaymentMethods(long id);
+
+    //Пополнение баланса
+    void topUpBalance(Long userId, double amount, Long paymentMethodId);
+
+    double getUserBalance(long id);
 
 
 //    private final UserRepository repository;

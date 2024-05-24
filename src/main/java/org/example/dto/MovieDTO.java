@@ -14,4 +14,9 @@ public class MovieDTO {
     private String title;
     private String description;
     private String img;
+    private String genre;
+    private double rating;
+    private int votes;
+    private double price;
+
 }

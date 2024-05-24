@@ -9,4 +9,5 @@ import java.util.List;
 @Repository
 public interface MovieRepository extends JpaRepository<Movie,Long> {
 public List<Movie> getAllByTitle(String title);
+List<Movie> findByGenre(String genre);
 }

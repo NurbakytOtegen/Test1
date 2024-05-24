@@ -27,6 +27,7 @@ public class JwtAuthService {
                 .email(registrationDto.getEmail())
                 .password(passwordEncoder.encode(registrationDto.getPassword()))
                 .role(ERole.ROLE_USER)
+                .balance(0)
                 .build();
         userService.addUser(user);
 

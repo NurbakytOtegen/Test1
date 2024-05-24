@@ -24,9 +24,9 @@ public class AuthController {
         return jwtAuthService.registration(registrationDto);
     }
 
-    @GetMapping(name = "/test")
-    @Operation(summary = "Доступен только авторизованным пользователям")
-    public String example() {
-        return "Hello, world!";
-    }
+//    @GetMapping(name = "/test")
+//    @Operation(summary = "Доступен только авторизованным пользователям")
+//    public String example() {
+//        return "Hello, world!";
+//    }
 }

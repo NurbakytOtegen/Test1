@@ -1,5 +1,6 @@
 package org.example.service;
 
+import jakarta.transaction.Transactional;
 import lombok.AllArgsConstructor;
 import org.example.dto.FavoriteDTO;
 import org.example.entity.Favorite;
@@ -21,6 +22,7 @@ public class FavoriteService {
     private MovieRepository movieRepository;
 
     //Добавить кино в избранные
+    @Transactional
     public boolean addMovieToFavorite(Long userId, Long movieId){
         if(favoriteRepository.existsByUserIdAndMovieId(userId,movieId)){
             return false;
@@ -40,9 +42,18 @@ public class FavoriteService {
         return movieRepository.findAllById(moviesIds);
     }
 
-    public boolean removeFromFavorites(Long userId, Long movieId){
 
-        favoriteRepository.deleteByUserIdAndMovieId(userId,movieId);
-        return true;
+
+    @Transactional
+    public boolean removeFromFavorites(Long userId, Long movieId){
+        boolean exists=favoriteRepository.existsByUserIdAndMovieId(userId, movieId);
+        if(exists) {
+            favoriteRepository.removeByUserIdAndMovieId(userId,movieId);
+            return true;
+        }else{
+            System.out.println("Not deleted from favorite!");
+            return false;
+        }
     }
+
 }
