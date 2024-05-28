@@ -1,15 +1,22 @@
 package org.example.service.Impl;
 
 import lombok.AllArgsConstructor;
+import lombok.RequiredArgsConstructor;
 import org.example.Payments.PaymentMethod;
 import org.example.Payments.PaymentMethodDto;
 import org.example.Payments.PaymentStrategy;
 import org.example.Payments.PaymentStrategyFactory;
 import org.example.dto.UserDTO;
+import org.example.entity.Movie;
+import org.example.entity.Subscription;
 import org.example.entity.User;
 import org.example.mapper.UserMapper;
+import org.example.repository.MovieRepository;
+import org.example.repository.SubscriptionRepository;
 import org.example.repository.UserRepository;
 import org.example.service.UserService;
+import org.example.state.ActiveState;
+import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -21,9 +28,12 @@ import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Service
-@AllArgsConstructor
+@RequiredArgsConstructor
 public class UserServiceImpl implements UserService {
-    private UserRepository userRepository;
+    private final UserRepository userRepository;
+    private final MovieRepository movieRepository;
+    private final SubscriptionRepository subscriptionRepository;
+    private final JavaMailSender javaMailSender;
 
     //Предыдущий метод
 //    @Override
@@ -161,4 +171,48 @@ public class UserServiceImpl implements UserService {
         }
         return 0;
     }
+
+    @Override
+    public void subscribeToMovie(Long userId, Long movieId) {
+        User user=userRepository.findById(userId)
+                .orElseThrow(()->new ResourceNotFoundException("User Not Found"));
+
+        Movie movie=movieRepository.findById(movieId)
+                .orElseThrow(()->new ResourceNotFoundException("Movie not found"));
+
+        Subscription subscription=Subscription.builder()
+                .user(user)
+                .movie(movie)
+                .state(new ActiveState())
+                .build();
+
+        user.addSubscription(subscription);
+        movie.addSubscription(subscription);
+
+        subscriptionRepository.save(subscription);
+        userRepository.save(user);
+        movieRepository.save(movie);
+    }
+
+
+    @Override
+    public void changeSubscriptionState(Long subscriptionId, String action) {
+        Subscription subscription=subscriptionRepository.findById(subscriptionId)
+                .orElseThrow(()->new ResourceNotFoundException("Subs not found"));
+
+        switch (action.toLowerCase()){
+            case "next":
+                subscription.nextState();
+                break;
+            case "prev":
+                subscription.prevState();
+                break;
+            default:
+                throw new IllegalArgumentException("Invalid action: "+action);
+        }
+
+        subscriptionRepository.save(subscription);
+    }
+
+
 }

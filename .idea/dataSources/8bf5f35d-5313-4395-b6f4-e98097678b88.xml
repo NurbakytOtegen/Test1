@@ -11,9 +11,9 @@
 4||10|c|G
 4||10|C|G
 4||10|T|G</Grants>
-      <IntrospectionStateNumber>2489</IntrospectionStateNumber>
+      <IntrospectionStateNumber>2994</IntrospectionStateNumber>
       <ServerVersion>16.2</ServerVersion>
-      <StartupTime>1715490982</StartupTime>
+      <StartupTime>1716708473</StartupTime>
       <TimeZones>true ACDT
 true ACSST
 false ACST
@@ -809,7 +809,7 @@ false Zulu
 14643||10|C|G
 14643||-9223372036854775808|U|G
 14643||10|U|G</Grants>
-      <IntrospectionStateNumber>2489</IntrospectionStateNumber>
+      <IntrospectionStateNumber>2994</IntrospectionStateNumber>
       <ObjectId>5</ObjectId>
       <OwnerName>postgres</OwnerName>
     </database>
@@ -5968,8 +5968,8 @@ false Zulu
     <schema id="272" parent="2" name="public">
       <Comment>standard public schema</Comment>
       <Current>1</Current>
-      <IntrospectionStateNumber>2489</IntrospectionStateNumber>
-      <LastIntrospectionLocalTimestamp>2024-05-17.15:17:31</LastIntrospectionLocalTimestamp>
+      <IntrospectionStateNumber>2994</IntrospectionStateNumber>
+      <LastIntrospectionLocalTimestamp>2024-05-27.09:16:15</LastIntrospectionLocalTimestamp>
       <ObjectId>2200</ObjectId>
       <StateNumber>524</StateNumber>
       <OwnerName>pg_database_owner</OwnerName>
@@ -5984,10 +5984,10 @@ false Zulu
     </sequence>
     <sequence id="274" parent="272" name="favorite_seq">
       <DasType>bigint|0s</DasType>
-      <ObjectId>90880</ObjectId>
+      <ObjectId>99468</ObjectId>
       <SequenceIdentity>1+50</SequenceIdentity>
       <StartValue>1</StartValue>
-      <StateNumber>2470</StateNumber>
+      <StateNumber>2977</StateNumber>
       <OwnerName>postgres</OwnerName>
     </sequence>
     <sequence id="275" parent="272" name="galaxy_movie_seq">
@@ -6006,23 +6006,31 @@ false Zulu
       <StateNumber>919</StateNumber>
       <OwnerName>postgres</OwnerName>
     </sequence>
-    <sequence id="277" parent="272" name="movies_seq">
+    <sequence id="277" parent="272" name="movies_2_0_seq">
       <DasType>bigint|0s</DasType>
-      <ObjectId>90881</ObjectId>
+      <ObjectId>99387</ObjectId>
       <SequenceIdentity>1+50</SequenceIdentity>
       <StartValue>1</StartValue>
-      <StateNumber>2471</StateNumber>
+      <StateNumber>2909</StateNumber>
       <OwnerName>postgres</OwnerName>
     </sequence>
-    <sequence id="278" parent="272" name="payment_method_id_seq">
+    <sequence id="278" parent="272" name="movies_seq">
       <DasType>bigint|0s</DasType>
-      <ObjectId>90895</ObjectId>
+      <ObjectId>99469</ObjectId>
+      <SequenceIdentity>1+50</SequenceIdentity>
+      <StartValue>1</StartValue>
+      <StateNumber>2978</StateNumber>
+      <OwnerName>postgres</OwnerName>
+    </sequence>
+    <sequence id="279" parent="272" name="payment_method_id_seq">
+      <DasType>bigint|0s</DasType>
+      <ObjectId>99484</ObjectId>
       <SequenceIdentity>1</SequenceIdentity>
       <StartValue>1</StartValue>
-      <StateNumber>2475</StateNumber>
+      <StateNumber>2983</StateNumber>
       <OwnerName>postgres</OwnerName>
     </sequence>
-    <sequence id="279" parent="272" name="person_seq">
+    <sequence id="280" parent="272" name="person_seq">
       <DasType>bigint|0s</DasType>
       <ObjectId>49658</ObjectId>
       <SequenceIdentity>1+50</SequenceIdentity>
@@ -6030,302 +6038,543 @@ false Zulu
       <StateNumber>1112</StateNumber>
       <OwnerName>postgres</OwnerName>
     </sequence>
-    <sequence id="280" parent="272" name="users_seq">
+    <sequence id="281" parent="272" name="subs_seq">
       <DasType>bigint|0s</DasType>
-      <ObjectId>90882</ObjectId>
+      <ObjectId>99470</ObjectId>
       <SequenceIdentity>1+50</SequenceIdentity>
       <StartValue>1</StartValue>
-      <StateNumber>2472</StateNumber>
+      <StateNumber>2979</StateNumber>
       <OwnerName>postgres</OwnerName>
     </sequence>
-    <table id="281" parent="272" name="favorite">
-      <ObjectId>90883</ObjectId>
-      <StateNumber>2473</StateNumber>
+    <sequence id="282" parent="272" name="users_2_0_seq">
+      <DasType>bigint|0s</DasType>
+      <ObjectId>99388</ObjectId>
+      <SequenceIdentity>1+50</SequenceIdentity>
+      <StartValue>1</StartValue>
+      <StateNumber>2910</StateNumber>
+      <OwnerName>postgres</OwnerName>
+    </sequence>
+    <sequence id="283" parent="272" name="users_seq">
+      <DasType>bigint|0s</DasType>
+      <ObjectId>99471</ObjectId>
+      <SequenceIdentity>1+50</SequenceIdentity>
+      <StartValue>1</StartValue>
+      <StateNumber>2980</StateNumber>
+      <OwnerName>postgres</OwnerName>
+    </sequence>
+    <table id="284" parent="272" name="favorite">
+      <ObjectId>99472</ObjectId>
+      <StateNumber>2981</StateNumber>
       <AccessMethodId>2</AccessMethodId>
       <OwnerName>postgres</OwnerName>
     </table>
-    <table id="282" parent="272" name="movies">
-      <ObjectId>90888</ObjectId>
-      <StateNumber>2474</StateNumber>
+    <table id="285" parent="272" name="movies">
+      <ObjectId>99477</ObjectId>
+      <StateNumber>2987</StateNumber>
       <AccessMethodId>2</AccessMethodId>
       <OwnerName>postgres</OwnerName>
     </table>
-    <table id="283" parent="272" name="payment_method">
-      <ObjectId>90896</ObjectId>
-      <StateNumber>2477</StateNumber>
+    <table id="286" parent="272" name="movies_2_0">
+      <ObjectId>99362</ObjectId>
+      <StateNumber>2911</StateNumber>
       <AccessMethodId>2</AccessMethodId>
       <OwnerName>postgres</OwnerName>
     </table>
-    <table id="284" parent="272" name="users">
-      <ObjectId>90904</ObjectId>
-      <StateNumber>2477</StateNumber>
+    <table id="287" parent="272" name="payment_method">
+      <ObjectId>99485</ObjectId>
+      <StateNumber>2986</StateNumber>
       <AccessMethodId>2</AccessMethodId>
       <OwnerName>postgres</OwnerName>
     </table>
-    <column id="285" parent="281" name="id">
+    <table id="288" parent="272" name="subs">
+      <ObjectId>99493</ObjectId>
+      <StateNumber>2987</StateNumber>
+      <AccessMethodId>2</AccessMethodId>
+      <OwnerName>postgres</OwnerName>
+    </table>
+    <table id="289" parent="272" name="users">
+      <ObjectId>99498</ObjectId>
+      <StateNumber>2986</StateNumber>
+      <AccessMethodId>2</AccessMethodId>
+      <OwnerName>postgres</OwnerName>
+    </table>
+    <table id="290" parent="272" name="users_2_0">
+      <ObjectId>99375</ObjectId>
+      <StateNumber>2912</StateNumber>
+      <AccessMethodId>2</AccessMethodId>
+      <OwnerName>postgres</OwnerName>
+    </table>
+    <column id="291" parent="284" name="id">
       <DasType>bigint|0s</DasType>
       <NotNull>1</NotNull>
       <Position>1</Position>
-      <StateNumber>2473</StateNumber>
+      <StateNumber>2981</StateNumber>
       <TypeId>20</TypeId>
     </column>
-    <column id="286" parent="281" name="movie_id">
+    <column id="292" parent="284" name="movie_id">
       <DasType>bigint|0s</DasType>
       <Position>2</Position>
-      <StateNumber>2473</StateNumber>
+      <StateNumber>2981</StateNumber>
       <TypeId>20</TypeId>
     </column>
-    <column id="287" parent="281" name="user_id">
+    <column id="293" parent="284" name="user_id">
       <DasType>bigint|0s</DasType>
       <Position>3</Position>
-      <StateNumber>2473</StateNumber>
+      <StateNumber>2981</StateNumber>
       <TypeId>20</TypeId>
     </column>
-    <index id="288" parent="281" name="favorite_pkey">
+    <index id="294" parent="284" name="favorite_pkey">
       <ColNames>id</ColNames>
       <NameSurrogate>1</NameSurrogate>
-      <ObjectId>90886</ObjectId>
+      <ObjectId>99475</ObjectId>
       <Primary>1</Primary>
-      <StateNumber>2473</StateNumber>
+      <StateNumber>2981</StateNumber>
       <Unique>1</Unique>
       <AccessMethodId>403</AccessMethodId>
     </index>
-    <key id="289" parent="281" name="favorite_pkey">
+    <key id="295" parent="284" name="favorite_pkey">
       <NameSurrogate>1</NameSurrogate>
-      <ObjectId>90887</ObjectId>
+      <ObjectId>99476</ObjectId>
       <Primary>1</Primary>
-      <StateNumber>2473</StateNumber>
-      <UnderlyingIndexId>90886</UnderlyingIndexId>
+      <StateNumber>2981</StateNumber>
+      <UnderlyingIndexId>99475</UnderlyingIndexId>
     </key>
-    <column id="290" parent="282" name="price">
+    <column id="296" parent="285" name="price">
       <DasType>double precision|0s</DasType>
       <Position>1</Position>
-      <StateNumber>2474</StateNumber>
+      <StateNumber>2982</StateNumber>
       <TypeId>701</TypeId>
     </column>
-    <column id="291" parent="282" name="rating">
+    <column id="297" parent="285" name="rating">
       <DasType>double precision|0s</DasType>
       <Position>2</Position>
-      <StateNumber>2474</StateNumber>
+      <StateNumber>2982</StateNumber>
       <TypeId>701</TypeId>
     </column>
-    <column id="292" parent="282" name="votes">
+    <column id="298" parent="285" name="votes">
       <DasType>integer|0s</DasType>
       <Position>3</Position>
-      <StateNumber>2474</StateNumber>
+      <StateNumber>2982</StateNumber>
       <TypeId>23</TypeId>
     </column>
-    <column id="293" parent="282" name="id">
+    <column id="299" parent="285" name="id">
       <DasType>bigint|0s</DasType>
       <NotNull>1</NotNull>
       <Position>4</Position>
-      <StateNumber>2474</StateNumber>
+      <StateNumber>2982</StateNumber>
       <TypeId>20</TypeId>
     </column>
-    <column id="294" parent="282" name="description">
+    <column id="300" parent="285" name="description">
       <DasType>varchar(255)|0s</DasType>
       <Position>5</Position>
-      <StateNumber>2474</StateNumber>
+      <StateNumber>2982</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="295" parent="282" name="genre">
+    <column id="301" parent="285" name="genre">
       <DasType>varchar(255)|0s</DasType>
       <Position>6</Position>
-      <StateNumber>2474</StateNumber>
+      <StateNumber>2982</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="296" parent="282" name="img">
+    <column id="302" parent="285" name="img">
       <DasType>varchar(255)|0s</DasType>
       <Position>7</Position>
-      <StateNumber>2474</StateNumber>
+      <StateNumber>2982</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="297" parent="282" name="title">
+    <column id="303" parent="285" name="title">
       <DasType>varchar(255)|0s</DasType>
       <Position>8</Position>
-      <StateNumber>2474</StateNumber>
+      <StateNumber>2982</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <index id="298" parent="282" name="movies_pkey">
+    <index id="304" parent="285" name="movies_pkey">
       <ColNames>id</ColNames>
       <NameSurrogate>1</NameSurrogate>
-      <ObjectId>90893</ObjectId>
+      <ObjectId>99482</ObjectId>
       <Primary>1</Primary>
-      <StateNumber>2474</StateNumber>
+      <StateNumber>2982</StateNumber>
       <Unique>1</Unique>
       <AccessMethodId>403</AccessMethodId>
     </index>
-    <key id="299" parent="282" name="movies_pkey">
+    <key id="305" parent="285" name="movies_pkey">
       <NameSurrogate>1</NameSurrogate>
-      <ObjectId>90894</ObjectId>
+      <ObjectId>99483</ObjectId>
       <Primary>1</Primary>
-      <StateNumber>2474</StateNumber>
-      <UnderlyingIndexId>90893</UnderlyingIndexId>
+      <StateNumber>2982</StateNumber>
+      <UnderlyingIndexId>99482</UnderlyingIndexId>
     </key>
-    <column id="300" parent="283" name="id">
+    <column id="306" parent="286" name="id">
+      <DasType>bigint|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>1</Position>
+      <StateNumber>2902</StateNumber>
+      <TypeId>20</TypeId>
+    </column>
+    <column id="307" parent="286" name="description">
+      <DasType>varchar(255)|0s</DasType>
+      <Position>2</Position>
+      <StateNumber>2902</StateNumber>
+      <TypeId>1043</TypeId>
+    </column>
+    <column id="308" parent="286" name="genre">
+      <DasType>varchar(255)|0s</DasType>
+      <Position>3</Position>
+      <StateNumber>2902</StateNumber>
+      <TypeId>1043</TypeId>
+    </column>
+    <column id="309" parent="286" name="img">
+      <DasType>varchar(255)|0s</DasType>
+      <Position>4</Position>
+      <StateNumber>2902</StateNumber>
+      <TypeId>1043</TypeId>
+    </column>
+    <column id="310" parent="286" name="price">
+      <DasType>double precision|0s</DasType>
+      <Position>5</Position>
+      <StateNumber>2902</StateNumber>
+      <TypeId>701</TypeId>
+    </column>
+    <column id="311" parent="286" name="rating">
+      <DasType>double precision|0s</DasType>
+      <Position>6</Position>
+      <StateNumber>2902</StateNumber>
+      <TypeId>701</TypeId>
+    </column>
+    <column id="312" parent="286" name="title">
+      <DasType>varchar(255)|0s</DasType>
+      <Position>7</Position>
+      <StateNumber>2902</StateNumber>
+      <TypeId>1043</TypeId>
+    </column>
+    <column id="313" parent="286" name="votes">
+      <DasType>integer|0s</DasType>
+      <Position>8</Position>
+      <StateNumber>2902</StateNumber>
+      <TypeId>23</TypeId>
+    </column>
+    <index id="314" parent="286" name="movies_2_0_pkey">
+      <ColNames>id</ColNames>
+      <NameSurrogate>1</NameSurrogate>
+      <ObjectId>99367</ObjectId>
+      <Primary>1</Primary>
+      <StateNumber>2902</StateNumber>
+      <Unique>1</Unique>
+      <AccessMethodId>403</AccessMethodId>
+    </index>
+    <key id="315" parent="286" name="movies_2_0_pkey">
+      <NameSurrogate>1</NameSurrogate>
+      <ObjectId>99368</ObjectId>
+      <Primary>1</Primary>
+      <StateNumber>2902</StateNumber>
+      <UnderlyingIndexId>99367</UnderlyingIndexId>
+    </key>
+    <column id="316" parent="287" name="id">
       <DasType>bigint|0s</DasType>
       <DefaultExpression>nextval(&apos;payment_method_id_seq&apos;::regclass)</DefaultExpression>
       <NotNull>1</NotNull>
       <Position>1</Position>
-      <StateNumber>2475</StateNumber>
-      <SequenceId>90895</SequenceId>
+      <StateNumber>2983</StateNumber>
+      <SequenceId>99484</SequenceId>
       <TypeId>20</TypeId>
     </column>
-    <column id="301" parent="283" name="user_id">
+    <column id="317" parent="287" name="user_id">
       <DasType>bigint|0s</DasType>
       <Position>2</Position>
-      <StateNumber>2475</StateNumber>
+      <StateNumber>2983</StateNumber>
       <TypeId>20</TypeId>
     </column>
-    <column id="302" parent="283" name="card_number">
+    <column id="318" parent="287" name="card_number">
       <DasType>varchar(255)|0s</DasType>
       <Position>3</Position>
-      <StateNumber>2475</StateNumber>
+      <StateNumber>2983</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="303" parent="283" name="cvv">
+    <column id="319" parent="287" name="cvv">
       <DasType>varchar(255)|0s</DasType>
       <Position>4</Position>
-      <StateNumber>2475</StateNumber>
+      <StateNumber>2983</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="304" parent="283" name="paypal_email">
+    <column id="320" parent="287" name="paypal_email">
       <DasType>varchar(255)|0s</DasType>
       <Position>5</Position>
-      <StateNumber>2475</StateNumber>
+      <StateNumber>2983</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="305" parent="283" name="paypal_password">
+    <column id="321" parent="287" name="paypal_password">
       <DasType>varchar(255)|0s</DasType>
       <Position>6</Position>
-      <StateNumber>2475</StateNumber>
+      <StateNumber>2983</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="306" parent="283" name="type">
+    <column id="322" parent="287" name="type">
       <DasType>varchar(255)|0s</DasType>
       <Position>7</Position>
-      <StateNumber>2475</StateNumber>
+      <StateNumber>2983</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <foreign-key id="307" parent="283" name="fkkeh6a1awkqba7l425dq4bi0l3">
+    <foreign-key id="323" parent="287" name="fkkeh6a1awkqba7l425dq4bi0l3">
       <ColNames>user_id</ColNames>
-      <ObjectId>90916</ObjectId>
-      <StateNumber>2477</StateNumber>
+      <ObjectId>99510</ObjectId>
+      <StateNumber>2986</StateNumber>
       <RefKeyColPositions>2</RefKeyColPositions>
-      <RefTableId>90904</RefTableId>
+      <RefTableId>99498</RefTableId>
     </foreign-key>
-    <index id="308" parent="283" name="payment_method_pkey">
+    <index id="324" parent="287" name="payment_method_pkey">
       <ColNames>id</ColNames>
       <NameSurrogate>1</NameSurrogate>
-      <ObjectId>90902</ObjectId>
+      <ObjectId>99491</ObjectId>
       <Primary>1</Primary>
-      <StateNumber>2475</StateNumber>
+      <StateNumber>2983</StateNumber>
       <Unique>1</Unique>
       <AccessMethodId>403</AccessMethodId>
     </index>
-    <key id="309" parent="283" name="payment_method_pkey">
+    <key id="325" parent="287" name="payment_method_pkey">
       <NameSurrogate>1</NameSurrogate>
-      <ObjectId>90903</ObjectId>
+      <ObjectId>99492</ObjectId>
       <Primary>1</Primary>
-      <StateNumber>2475</StateNumber>
-      <UnderlyingIndexId>90902</UnderlyingIndexId>
+      <StateNumber>2983</StateNumber>
+      <UnderlyingIndexId>99491</UnderlyingIndexId>
     </key>
-    <check id="310" parent="284" name="users_role_check">
+    <column id="326" parent="288" name="id">
+      <DasType>bigint|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>1</Position>
+      <StateNumber>2984</StateNumber>
+      <TypeId>20</TypeId>
+    </column>
+    <column id="327" parent="288" name="movie_id">
+      <DasType>bigint|0s</DasType>
+      <Position>2</Position>
+      <StateNumber>2984</StateNumber>
+      <TypeId>20</TypeId>
+    </column>
+    <column id="328" parent="288" name="user_id">
+      <DasType>bigint|0s</DasType>
+      <Position>3</Position>
+      <StateNumber>2984</StateNumber>
+      <TypeId>20</TypeId>
+    </column>
+    <foreign-key id="329" parent="288" name="fkswbxvp39wpt3ss2egbflll1a9">
+      <ColNames>movie_id</ColNames>
+      <ObjectId>99515</ObjectId>
+      <StateNumber>2987</StateNumber>
+      <RefKeyColPositions>4</RefKeyColPositions>
+      <RefTableId>99477</RefTableId>
+    </foreign-key>
+    <foreign-key id="330" parent="288" name="fkhupafxltk1ox4cwhaf1wi0mdk">
+      <ColNames>user_id</ColNames>
+      <ObjectId>99520</ObjectId>
+      <StateNumber>2988</StateNumber>
+      <RefKeyColPositions>2</RefKeyColPositions>
+      <RefTableId>99498</RefTableId>
+    </foreign-key>
+    <index id="331" parent="288" name="subs_pkey">
+      <ColNames>id</ColNames>
+      <NameSurrogate>1</NameSurrogate>
+      <ObjectId>99496</ObjectId>
+      <Primary>1</Primary>
+      <StateNumber>2984</StateNumber>
+      <Unique>1</Unique>
+      <AccessMethodId>403</AccessMethodId>
+    </index>
+    <key id="332" parent="288" name="subs_pkey">
+      <NameSurrogate>1</NameSurrogate>
+      <ObjectId>99497</ObjectId>
+      <Primary>1</Primary>
+      <StateNumber>2984</StateNumber>
+      <UnderlyingIndexId>99496</UnderlyingIndexId>
+    </key>
+    <check id="333" parent="289" name="users_role_check">
       <ColNames>role</ColNames>
-      <ObjectId>90907</ObjectId>
+      <ObjectId>99501</ObjectId>
       <Predicate>(role)::text = ANY ((ARRAY[&apos;ROLE_USER&apos;::character varying, &apos;ROLE_ADMIN&apos;::character varying])::text[])</Predicate>
-      <StateNumber>2476</StateNumber>
+      <StateNumber>2985</StateNumber>
     </check>
-    <column id="311" parent="284" name="balance">
+    <column id="334" parent="289" name="balance">
       <DasType>double precision|0s</DasType>
       <Position>1</Position>
-      <StateNumber>2476</StateNumber>
+      <StateNumber>2985</StateNumber>
       <TypeId>701</TypeId>
     </column>
-    <column id="312" parent="284" name="id">
+    <column id="335" parent="289" name="id">
       <DasType>bigint|0s</DasType>
       <NotNull>1</NotNull>
       <Position>2</Position>
-      <StateNumber>2476</StateNumber>
+      <StateNumber>2985</StateNumber>
       <TypeId>20</TypeId>
     </column>
-    <column id="313" parent="284" name="email">
+    <column id="336" parent="289" name="email">
       <DasType>varchar(255)|0s</DasType>
       <NotNull>1</NotNull>
       <Position>3</Position>
-      <StateNumber>2476</StateNumber>
+      <StateNumber>2985</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="314" parent="284" name="password">
+    <column id="337" parent="289" name="password">
       <DasType>varchar(255)|0s</DasType>
       <NotNull>1</NotNull>
       <Position>4</Position>
-      <StateNumber>2476</StateNumber>
+      <StateNumber>2985</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="315" parent="284" name="role">
+    <column id="338" parent="289" name="role">
       <DasType>varchar(255)|0s</DasType>
       <NotNull>1</NotNull>
       <Position>5</Position>
-      <StateNumber>2476</StateNumber>
+      <StateNumber>2985</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="316" parent="284" name="username">
+    <column id="339" parent="289" name="username">
       <DasType>varchar(255)|0s</DasType>
       <NotNull>1</NotNull>
       <Position>6</Position>
-      <StateNumber>2476</StateNumber>
+      <StateNumber>2985</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <index id="317" parent="284" name="users_pkey">
+    <index id="340" parent="289" name="users_pkey">
       <ColNames>id</ColNames>
       <NameSurrogate>1</NameSurrogate>
-      <ObjectId>90910</ObjectId>
+      <ObjectId>99504</ObjectId>
       <Primary>1</Primary>
-      <StateNumber>2476</StateNumber>
+      <StateNumber>2985</StateNumber>
       <Unique>1</Unique>
       <AccessMethodId>403</AccessMethodId>
     </index>
-    <index id="318" parent="284" name="users_email_key">
+    <index id="341" parent="289" name="users_email_key">
       <ColNames>email</ColNames>
       <NameSurrogate>1</NameSurrogate>
-      <ObjectId>90912</ObjectId>
-      <StateNumber>2476</StateNumber>
+      <ObjectId>99506</ObjectId>
+      <StateNumber>2985</StateNumber>
       <Unique>1</Unique>
       <AccessMethodId>403</AccessMethodId>
       <CollationNames>default</CollationNames>
       <CollationIds>100</CollationIds>
       <CollationParentNames>pg_catalog</CollationParentNames>
     </index>
-    <index id="319" parent="284" name="users_username_key">
+    <index id="342" parent="289" name="users_username_key">
       <ColNames>username</ColNames>
       <NameSurrogate>1</NameSurrogate>
-      <ObjectId>90914</ObjectId>
-      <StateNumber>2476</StateNumber>
+      <ObjectId>99508</ObjectId>
+      <StateNumber>2985</StateNumber>
       <Unique>1</Unique>
       <AccessMethodId>403</AccessMethodId>
       <CollationNames>default</CollationNames>
       <CollationIds>100</CollationIds>
       <CollationParentNames>pg_catalog</CollationParentNames>
     </index>
-    <key id="320" parent="284" name="users_pkey">
+    <key id="343" parent="289" name="users_pkey">
       <NameSurrogate>1</NameSurrogate>
-      <ObjectId>90911</ObjectId>
+      <ObjectId>99505</ObjectId>
       <Primary>1</Primary>
-      <StateNumber>2476</StateNumber>
-      <UnderlyingIndexId>90910</UnderlyingIndexId>
+      <StateNumber>2985</StateNumber>
+      <UnderlyingIndexId>99504</UnderlyingIndexId>
     </key>
-    <key id="321" parent="284" name="users_email_key">
+    <key id="344" parent="289" name="users_email_key">
       <NameSurrogate>1</NameSurrogate>
-      <ObjectId>90913</ObjectId>
-      <StateNumber>2476</StateNumber>
-      <UnderlyingIndexId>90912</UnderlyingIndexId>
+      <ObjectId>99507</ObjectId>
+      <StateNumber>2985</StateNumber>
+      <UnderlyingIndexId>99506</UnderlyingIndexId>
     </key>
-    <key id="322" parent="284" name="users_username_key">
+    <key id="345" parent="289" name="users_username_key">
       <NameSurrogate>1</NameSurrogate>
-      <ObjectId>90915</ObjectId>
-      <StateNumber>2476</StateNumber>
-      <UnderlyingIndexId>90914</UnderlyingIndexId>
+      <ObjectId>99509</ObjectId>
+      <StateNumber>2985</StateNumber>
+      <UnderlyingIndexId>99508</UnderlyingIndexId>
+    </key>
+    <check id="346" parent="290" name="users_2_0_role_check">
+      <ColNames>role</ColNames>
+      <ObjectId>99378</ObjectId>
+      <Predicate>(role)::text = ANY ((ARRAY[&apos;ROLE_USER&apos;::character varying, &apos;ROLE_ADMIN&apos;::character varying])::text[])</Predicate>
+      <StateNumber>2904</StateNumber>
+    </check>
+    <column id="347" parent="290" name="id">
+      <DasType>bigint|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>1</Position>
+      <StateNumber>2904</StateNumber>
+      <TypeId>20</TypeId>
+    </column>
+    <column id="348" parent="290" name="balance">
+      <DasType>double precision|0s</DasType>
+      <Position>2</Position>
+      <StateNumber>2904</StateNumber>
+      <TypeId>701</TypeId>
+    </column>
+    <column id="349" parent="290" name="email">
+      <DasType>varchar(255)|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>3</Position>
+      <StateNumber>2904</StateNumber>
+      <TypeId>1043</TypeId>
+    </column>
+    <column id="350" parent="290" name="password">
+      <DasType>varchar(255)|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>4</Position>
+      <StateNumber>2904</StateNumber>
+      <TypeId>1043</TypeId>
+    </column>
+    <column id="351" parent="290" name="role">
+      <DasType>varchar(255)|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>5</Position>
+      <StateNumber>2904</StateNumber>
+      <TypeId>1043</TypeId>
+    </column>
+    <column id="352" parent="290" name="username">
+      <DasType>varchar(255)|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>6</Position>
+      <StateNumber>2904</StateNumber>
+      <TypeId>1043</TypeId>
+    </column>
+    <index id="353" parent="290" name="users_2_0_pkey">
+      <ColNames>id</ColNames>
+      <NameSurrogate>1</NameSurrogate>
+      <ObjectId>99381</ObjectId>
+      <Primary>1</Primary>
+      <StateNumber>2904</StateNumber>
+      <Unique>1</Unique>
+      <AccessMethodId>403</AccessMethodId>
+    </index>
+    <index id="354" parent="290" name="ukhmr6u0fgwnfu77lm507rtk8dh">
+      <ColNames>email</ColNames>
+      <ObjectId>99383</ObjectId>
+      <StateNumber>2906</StateNumber>
+      <Unique>1</Unique>
+      <AccessMethodId>403</AccessMethodId>
+      <CollationNames>default</CollationNames>
+      <CollationIds>100</CollationIds>
+      <CollationParentNames>pg_catalog</CollationParentNames>
+    </index>
+    <index id="355" parent="290" name="ukd132htaalrmrdo0w9sfcugs4k">
+      <ColNames>username</ColNames>
+      <ObjectId>99385</ObjectId>
+      <StateNumber>2908</StateNumber>
+      <Unique>1</Unique>
+      <AccessMethodId>403</AccessMethodId>
+      <CollationNames>default</CollationNames>
+      <CollationIds>100</CollationIds>
+      <CollationParentNames>pg_catalog</CollationParentNames>
+    </index>
+    <key id="356" parent="290" name="users_2_0_pkey">
+      <NameSurrogate>1</NameSurrogate>
+      <ObjectId>99382</ObjectId>
+      <Primary>1</Primary>
+      <StateNumber>2904</StateNumber>
+      <UnderlyingIndexId>99381</UnderlyingIndexId>
+    </key>
+    <key id="357" parent="290" name="ukhmr6u0fgwnfu77lm507rtk8dh">
+      <ObjectId>99384</ObjectId>
+      <StateNumber>2906</StateNumber>
+      <UnderlyingIndexId>99383</UnderlyingIndexId>
+    </key>
+    <key id="358" parent="290" name="ukd132htaalrmrdo0w9sfcugs4k">
+      <ObjectId>99386</ObjectId>
+      <StateNumber>2908</StateNumber>
+      <UnderlyingIndexId>99385</UnderlyingIndexId>
     </key>
   </database-model>
 </dataSource>

@@ -13,7 +13,8 @@ public class MovieMapper {
                 movie.getGenre(),
                 movie.getRating(),
                 movie.getVotes(),
-                movie.getPrice()
+                movie.getPrice(),
+                movie.getSubscriptions()
         );
     };
 
@@ -26,7 +27,8 @@ public class MovieMapper {
                 movieDTO.getGenre(),
                 movieDTO.getRating(),
                 movieDTO.getVotes(),
-                movieDTO.getPrice()
+                movieDTO.getPrice(),
+                movieDTO.getSubscriptions()
         );
     }
 }

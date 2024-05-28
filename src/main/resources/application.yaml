@@ -1,6 +1,17 @@
 server:
   port: 8090
 spring:
+  mail:
+    host: smtp.gmail.com
+    port: 587
+    username: notegen6@gmail.com
+    password: 01042005Nn
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
   datasource:
     driver-class-name: org.postgresql.Driver
     username: postgres
@@ -10,7 +21,7 @@ spring:
     name: security-security
   jpa:
     hibernate:
-      ddl-auto: update
+      ddl-auto: create
     show-sql: false
 token:
   sign:

@@ -35,6 +35,14 @@ public interface UserService {
     double getUserBalance(long id);
 
 
+    //////
+    void subscribeToMovie(Long userId, Long movieId);
+
+    void changeSubscriptionState(Long subscriptionId, String action);
+
+
+
+
 //    private final UserRepository repository;
 
 //    public UserService(UserRepository repository) {

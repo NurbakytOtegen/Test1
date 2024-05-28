@@ -1,15 +1,18 @@
 package org.example.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import lombok.*;
 import org.example.Payments.PaymentMethod;
+import org.example.observer.Observer;
+import org.example.observer.UserObserver;
+import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.List;
+import java.util.*;
 
 
 @Entity
@@ -18,6 +21,7 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
+@JsonIgnoreProperties({"hibernateLazyInitializer", "handler", "subscriptions"})
 @Table(name="users")
 public class User implements UserDetails {
     @Id
@@ -38,6 +42,8 @@ public class User implements UserDetails {
     @OneToMany(cascade = CascadeType.ALL)
     @JoinColumn(name = "user_id")
     private List<PaymentMethod> paymentMethod=new ArrayList<>();
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    private Set<Subscription> subscriptions=new HashSet<>();
 
     @Override
     public String toString() {
@@ -49,6 +55,7 @@ public class User implements UserDetails {
                 ", role=" + role +
                 ", balance=" + balance +
                 ", paymentMethod=" + paymentMethod +
+                ", subscriptions=" + subscriptions +
                 '}';
     }
 
@@ -70,4 +77,18 @@ public class User implements UserDetails {
     public boolean isEnabled() {return true;}
 
 
+    public void addSubscription(Subscription subscription){
+        subscriptions.add(subscription);
+        subscription.setUser(this);
+    }
+
+
+    public void removeSubscription(Subscription subscription){
+        subscriptions.remove(subscription);
+        subscription.setUser(null);
+    }
+
+    public Observer createObserver(){
+        return new UserObserver(this.username, this.email);
+    }
 }

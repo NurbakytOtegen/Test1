@@ -1,7 +1,12 @@
 package org.example.entity;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.*;
+import org.springframework.mail.javamail.JavaMailSender;
+
+import java.util.HashSet;
+import java.util.Set;
 
 @Table(name="movies")
 @Entity
@@ -29,7 +34,9 @@ private String title;
     private int votes;
     @Column(name="price")
     private double price;
-
+    @JsonManagedReference
+    @OneToMany(mappedBy = "movie",cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    private Set<Subscription> subscriptions=new HashSet<>();
 
     @Override
     public String toString() {
@@ -42,6 +49,27 @@ private String title;
                 ", rating=" + rating +
                 ", votes=" + votes +
                 ", price=" + price +
+                ", subscriptions=" + subscriptions +
                 '}';
+    }
+
+
+
+
+    public void addSubscription(Subscription subscription){
+        subscriptions.add(subscription);
+        subscription.setMovie(this);
+    }
+
+    public void removeSubscription(Subscription subscription){
+        subscriptions.remove(subscription);
+        subscription.setMovie(null);
+    }
+
+    public void notifySubscribers(){
+        for (Subscription subscription: subscriptions){
+            ///javaMailSender
+            subscription.update();
+        }
     }
 }

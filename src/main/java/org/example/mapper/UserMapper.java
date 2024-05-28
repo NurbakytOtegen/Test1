@@ -14,7 +14,8 @@ public class UserMapper {
                 user.getEmail(),
                 user.getRole(),
                 user.getBalance(),
-                user.getPaymentMethod()
+                user.getPaymentMethod(),
+                user.getSubscriptions()
         );
     }
 
@@ -26,7 +27,8 @@ public class UserMapper {
                 userDTO.getEmail(),
                 userDTO.getRole(),
                 userDTO.getBalance(),
-                userDTO.getPaymentMethod()
+                userDTO.getPaymentMethod(),
+                userDTO.getSubscriptions()
         );
     }
 }

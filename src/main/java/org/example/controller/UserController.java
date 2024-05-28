@@ -84,4 +84,16 @@ public class UserController {
         return ResponseEntity.ok(balance);
     }
 
+    @PostMapping("/{userId}/subscribe/{movieId}")
+    public ResponseEntity<String> subscribeToMovie(@PathVariable Long userId, @PathVariable Long movieId){
+        userService.subscribeToMovie(userId, movieId);
+        return ResponseEntity.ok("Subscription successful");
+    }
+    @PutMapping("/subscription/{subscriptionId}/{action}")
+    public ResponseEntity<String> changeSubscriptionState(@PathVariable Long subscriptionId, @PathVariable String action){
+        userService.changeSubscriptionState(subscriptionId, action);
+        return ResponseEntity.ok("Subscription state successful updated");
+    }
+
+
 }

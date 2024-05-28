@@ -6,8 +6,10 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.example.Payments.PaymentMethod;
 import org.example.entity.ERole;
+import org.example.entity.Subscription;
 
 import java.util.List;
+import java.util.Set;
 
 @Getter
 @Setter
@@ -21,4 +23,5 @@ public class UserDTO {
     private ERole role;
     private double balance;
     private List<PaymentMethod> paymentMethod;
+    private Set<Subscription> subscriptions;
 }

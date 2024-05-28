@@ -7,6 +7,7 @@ import org.example.exception.ResourceNotFoundException;
 import org.example.mapper.MovieMapper;
 import org.example.repository.MovieRepository;
 import org.example.service.MovieService;
+import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -16,7 +17,8 @@ import java.util.stream.Collectors;
 @AllArgsConstructor
 
 public class MovieServiceImpl implements MovieService {
-    private MovieRepository movieRepository;
+    private final MovieRepository movieRepository;
+//    private final JavaMailSender javaMailSender;
     @Override
     public MovieDTO createMovie(MovieDTO movieDTO) {
         Movie movie= MovieMapper.mapToMovie(movieDTO);
@@ -82,6 +84,8 @@ public class MovieServiceImpl implements MovieService {
         movie.setVotes(votes+1);
 
         Movie updatedMovie=movieRepository.save(movie);
+
+        movie.notifySubscribers();
         return MovieMapper.mapToMovieDto(updatedMovie);
     }
 }
